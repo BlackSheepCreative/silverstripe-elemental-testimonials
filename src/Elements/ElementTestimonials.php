@@ -122,12 +122,12 @@ class ElementTestimonials extends BaseElement
 
                 $fields->addFieldToTab(
                     'Root.Main',
-                    'Limit',
                     ListboxField::create(
                         'TestimonialCategories',
                         'Categories',
                         TestimonialCategory::get()->map()->toArray()
-                    )
+                    ),
+                    'Limit',
                 );
             }
         });
