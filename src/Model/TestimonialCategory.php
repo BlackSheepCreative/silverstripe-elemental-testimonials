@@ -4,6 +4,7 @@ namespace Dynamic\Elements\Model;
 
 use Dynamic\Elements\Elements\ElementTestimonials;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\FieldType\DBVarchar;
 
 /**
  * Class TestimonialCategory
@@ -16,29 +17,29 @@ class TestimonialCategory extends DataObject
     /**
      * @var string
      */
-    private static $singular_name = 'Category';
+    private static string $singular_name = 'Category';
 
     /**
      * @var string
      */
-    private static $plural_name = 'Categories';
+    private static string $plural_name = 'Categories';
 
     /**
      * @var string
      */
-    private static $table_name = 'TestimonialCategory';
+    private static string $table_name = 'TestimonialCategory';
 
     /**
      * @var array
      */
-    private static $db = [
-        'Title' => 'Varchar(255)',
+    private static array $db = [
+        'Title' => DBVarchar::class,
     ];
 
     /**
      * @var array
      */
-    private static $belongs_many_many = [
+    private static array $belongs_many_many = [
         'Testimonials' => Testimonial::class,
         'TestimonialElements' => ElementTestimonials::class,
     ];

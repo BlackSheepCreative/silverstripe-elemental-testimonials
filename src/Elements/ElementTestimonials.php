@@ -11,6 +11,7 @@ use SilverStripe\Forms\ListboxField;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\FieldType\DBField;
 use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 /**
  * Class ElementTestimonials
@@ -24,42 +25,42 @@ class ElementTestimonials extends BaseElement
     /**
      * @var string
      */
-    private static $icon = 'font-icon-chat';
+    private static string $icon = 'font-icon-chat';
 
     /**
      * @var string
      */
-    private static $singular_name = 'Testimonials Element';
+    private static string $singular_name = 'Testimonials Element';
 
     /**
      * @var string
      */
-    private static $plural_name = 'Testimonials Elements';
+    private static string $plural_name = 'Testimonials Elements';
 
     /**
      * @var string
      */
-    private static $table_name = 'ElementTestimonials';
+    private static string $table_name = 'ElementTestimonials';
 
     /**
      * @var array
      */
-    private static $db = [
-        'Limit' => 'Int',
+    private static array $db = [
+        'Limit' => DBInt::class,
         'Content' => 'HTMLText',
     ];
 
     /**
      * @var array
      */
-    private static $many_many = [
+    private static array $many_many = [
         'TestimonialCategories' => TestimonialCategory::class,
     ];
 
     /**
      * @var array
      */
-    private static $defaults = [
+    private static array $defaults = [
         'Limit' => 3,
     ];
 
@@ -148,7 +149,7 @@ class ElementTestimonials extends BaseElement
             $testimonials = $testimonials->filterAny(['TestimonialCategories.ID' => $categories->column()]);
         }
 
-        $testimonials = $testimonials->sort($random);
+        $testimonials = $testimonials->orderBy($random);
         if (0 < $this->Limit) {
             $testimonials = $testimonials->limit($this->Limit);
         }

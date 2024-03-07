@@ -15,7 +15,7 @@ class TestimonialsAdmin extends ModelAdmin
     /**
      * @var array
      */
-    private static $managed_models = [
+    private static array $managed_models = [
         Testimonial::class => [
             'title' => 'Testimonials',
         ],
@@ -27,10 +27,10 @@ class TestimonialsAdmin extends ModelAdmin
     /**
      * @var string
      */
-    private static $url_segment = 'testimonials';
+    private static string $url_segment = 'testimonials';
 
     /**
      * @var string
      */
-    private static $menu_title = 'Testimonials';
+    private static string $menu_title = 'Testimonials';
 }
