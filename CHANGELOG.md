@@ -1,5 +1,8 @@
 # Change Log
 
+## [3.0.1](https://github.com/blacksheepcreative/silverstripe-elemental-testimonials/tree/3.0.1) (2024-03-08)
+* Weow. Didn't import the DBInt class. This broke things. Fixed now.
+
 ## [3.0.0](https://github.com/blacksheepcreative/silverstripe-elemental-testimonials/tree/3.0.0) (2024-03-08)
 * Change ORM sort call in ElementTestimonials getTestimonialsList to use orderBy with random to align with SS5 updates.
 * Strong typed the props.
